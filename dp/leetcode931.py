@@ -31,7 +31,3 @@ class Solution:
 
         return min(helper(0, j) for j in range(col))
 
-    
-# sol = Solution()
-# ans = sol.minFallingPathSum([[100,-42,-46,-41],[31,97,10,-10],[-58,-51,82,89],[51,81,69,-51]])
-# print(ans)
