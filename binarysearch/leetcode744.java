@@ -45,10 +45,33 @@ class Solution {
             return letters[0];
             }
     }
+        public int  rotatedSearch(int[] arr){ 
+        
+            int s = 0 , e = arr.length-1;
+            if(arr[s] < arr[e] || s == e){
+                return e;
+            }
+            while(s <= e ){
+                int mid = (s+e)/2;
+                if(arr[mid] > arr[mid+1]){
+                    return mid;
+                }
+                else if(arr[mid-1] > arr[mid]){
+                    return mid-1;
+                }
+                else if(arr[s] > arr[mid]){
+                    e = mid-1;
+                }else if(arr[s] < arr[mid]){
+                    s = mid+1;
+                }
+            }
+            return -1;
+        }
     public static void main(String[] args) {
         Solution sol = new Solution();
-        char ans = sol.nextGreatestLetter(new char[]{'x','x','y','y'},'z');
+        int ans = sol.rotatedSearch(new int[]{4,5,1,2,3});
         System.out.println(ans);
+
 
     }
 }

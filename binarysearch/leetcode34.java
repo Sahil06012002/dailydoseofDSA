@@ -37,9 +37,6 @@ class Solution {
 
         int[] result = sol.test(new int[]{3,7,7,8,8,10}, 8);
         System.out.println(result);
-
-
-
     }
         
 }
