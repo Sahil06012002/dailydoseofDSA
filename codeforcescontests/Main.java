@@ -1,4 +1,4 @@
-
+package codeforcescontests;
 import java.util.Scanner;
 public class Main {
     public String homework(String a, int la, String b, int lb, String c) {
