@@ -26,11 +26,10 @@ public class leetcode15 {
     public List<List<Integer>> threeSum(int[] nums) {
         Arrays.sort(nums);
         List<List<Integer>> ans = new ArrayList<>();
-        int i =0;
         // while(i<= )
         return ans;
     }
     public static void main(String[] args) {
         
     }
-}
+}   
