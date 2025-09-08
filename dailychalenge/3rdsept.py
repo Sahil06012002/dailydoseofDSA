@@ -21,9 +21,7 @@ class Solution:
                             insideRect = True
                             break
 
-                    if insideRect :
-                        break
-                    else :
+                    if not insideRect :
                         count += 1
         return count
 
