@@ -13,7 +13,7 @@ class Preorder :
         self.dfs(root.right, result)
 
 
-    def preorderTraversal(self, root) -> List[int]:
+    def inorder_traversal_itr(self, root) -> List[int]:
 
         # iterative
         result = []
@@ -32,6 +32,50 @@ class Preorder :
 
 
         return result
+    
+    def pre_order_traversal(root) :
+        stack = []
+        if root is not None :
+            stack.append(root)
+        result = []
+
+
+        while stack :
+            node = stack.pop(len(stack)-1)
+
+            result.append(node.val)
+
+            if node.right :
+                stack.append(node.right)
+            if node.left :
+                stack.append(node.left)
+
+        return result
+
+
+
+    def postorder_traversal(root) :
+        result = []
+        def helper(root) :
+            if root == None :
+                return 
+            helper(root.left)
+            helper(root.right)
+            result.append(root.val)
+        helper(root)            
+        return result
+
+
+
+    def postorder_traversal_itr(root) :
+        pass
+
+
+
+            
+
+
+
 
 
 
