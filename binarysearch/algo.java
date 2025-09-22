@@ -1,44 +1,64 @@
-package binarysearch;
+/*
+class Node{
+    int data;
+    Node left;
+    Node right;
+    Node(int data){
+        this.data = data;
+        left=null;
+        right=null;
+    }
+}
+*/
 
 class Solution {
-    public int binSearch(int[] arr , int target) {
-        int start = 0;
-        int end = arr.length-1;
-
-        while(start <= end ) {
-            int mid = (start + end) /2;
-            if(arr[mid] == target) {
-                return mid;
-            }else if(arr[mid] < target) {
-                start = mid +1;
-            }else {
-                end = mid-1;
-            } 
+    // Function to return a list of nodes visible from the top view
+    // from left to right in Binary Tree.
+    TreeMap<Integer  , Integer > map = new TreeMap<>();
+    
+    
+    
+    class NodeInfo {
+        int col;
+        Node node;
+        public NodeInfo(int col , Node node) {
+            this.col = col;
+            this.node = node;
         }
-
-        return  -1 ;
-    }
-
-    public int ceil(int[] arr, int num) {
-        int start  = 0, end = arr.length-1;
-        int mid = (start+ end)/2;
-        while(start <= end) {
-            if(arr[mid] == num) {
-                return mid;
-            }else if(num > arr[mid]) {
-                start  = mid +1;
-
-            }else {
-                end = mid -1;
-            }
-        }
-        return start;
     }
     
-    public static void main(String[] args) {
-        Solution sol = new Solution();
-        int ans = sol.binSearch(new int[]{1,2,3,4,5,6,7,8,9},10);
-        System.out.println(ans);
-
+    static void bfs(Node node, int col){
+        Queue<NodeInfo node> q = new LinkedList<>();
+        q.add(new NodeInfo(col, node));
+        
+        while(!q.isEmpty()){
+            int qLen = q.size();
+            for(int i=0; i<qLen ; i++){
+                
+                
+                NodeInfo nodeInfo = q.poll();
+                if(!map.containsKey(nodeInfo.col)){
+                    map.put(col , nodeInfo.node.val);
+                }
+                if (nodeInfo.node.left) q.add(new NodeInfo(col-1, node.left));
+                if (nodeInfo.node.right) q.add(new NodeInfo(col+1, node.right));
+            }
+            
+            
+            
+        }
+        
+    } 
+    
+    
+    static ArrayList<Integer> topView(Node root) {
+        // code here
+        List<Integer> result = new ArrayList<>();
+        bfs(root,0);
+        for(int val : map.values()){
+            result.add(val);
+        }
+        
+        return result;
     }
 }
