@@ -36,8 +36,33 @@ class Solution:
         print(max_sum)
         return max_sum
     
+    def maxSubArray(self, nums: List[int]) -> int:
+        n = len(nums)
+        end = 0
+        curr_sum = 0
+        max_sum = float('-inf')
+
+        while end < n :
+            curr_sum += nums[end]
+            max_sum = max(max_sum, curr_sum)
+
+            if curr_sum < 0 :
+                curr_sum = 0
+            end += 1
+        print(max_sum)
+        return max_sum  
+
+
+
+
+
+
+
+
+
+    
 sol  = Solution()
-sol.maxSubArrayBrute([5,4,-1,7,8])
+sol.maxSubArray([5,4,-1,7,8])
 
 
 
