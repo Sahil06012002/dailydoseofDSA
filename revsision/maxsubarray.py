@@ -49,7 +49,6 @@ class Solution:
             if curr_sum < 0 :
                 curr_sum = 0
             end += 1
-        print(max_sum)
         return max_sum  
 
 
