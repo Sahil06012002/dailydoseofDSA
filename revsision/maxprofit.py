@@ -37,6 +37,22 @@ class Solution :
                 max_profit = max(max_profit,(sold-bought))
         return max_profit
     
+    def maximise_profit(self, nums) :
+        n = len(nums)
+        min_price = nums[0]
+        max_profit = 0
+        for x in nums :
+            if min_price < x :
+                max_profit = max(max_profit, x-min_price)
+            else : 
+                min_price = x
+
+        return max_profit
+
+
+
+
+
 sol = Solution()
-print(sol.brute([7,6,4,3,1]))
+print(sol.maximise_profit([7,1,5,3,6,4]))
             
