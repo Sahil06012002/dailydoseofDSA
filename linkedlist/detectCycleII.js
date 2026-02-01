@@ -30,3 +30,15 @@ var detectCycle = function(head) {
     return null
     
 };
+
+function splitNumber(n){
+    let arr = []
+    while(n != 0){
+        arr.push(n % 10)
+        n = Math.floor(n/10)
+    }
+    arr.reverse()
+    console.log(arr)
+}
+
+splitNumber(123)
