@@ -34,12 +34,28 @@ public class CountSubset {
 
     }
 
+    public int countSubsetRev(int[] arr, int n, int target) {
+        if (target == 0) {
+            return 1;
+        }
+        if (n == 0) {
+            return 0;
+        }
+        if (arr[n - 1] <= target) {
+            return countSubsetRev(arr, n - 1, target - arr[n - 1]) + countSubsetRev(arr, n - 1, target);
+        } else {
+            return countSubsetRev(arr, n - 1, target);
+        }
+    }
+
     public static void main(String[] args) {
         CountSubset obj = new CountSubset();
         int[] arr = new int[] { 5, 2, 3, 10, 6, 8 };
         int target = 10;
         int n = arr.length;
-        int ans = obj.countItr(arr, target, n);
+        // int ans = obj.countItr(arr, target, n);
+        int ans = obj.countSubsetRev(arr, n, target);
+
         System.out.println(ans);
     }
 }
